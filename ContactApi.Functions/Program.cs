@@ -1,15 +1,22 @@
-﻿using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using ContactApi.Functions.Services;
-using Microsoft.Azure.Functions.Worker.Extensions.OpenApi.Extensions;   
-
+﻿using Azure.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 
 var host = new HostBuilder()
-    .ConfigureFunctionsWorkerDefaults()
-    .ConfigureOpenApi() // 👈 This is what makes Swagger work!
-    .ConfigureServices(s =>
+    .ConfigureAppConfiguration((context, config) =>
     {
-        s.AddSingleton<ContactRepository>();
+        var settings = config.Build();
+        var endpoint = settings["AppConfigEndpoint"];
+        if (!string.IsNullOrEmpty(endpoint))
+        {
+            config.AddAzureAppConfiguration(options =>
+            {
+                options.Connect(new Uri(endpoint), new DefaultAzureCredential())
+                       .ConfigureKeyVault(kv => kv.SetCredential(new DefaultAzureCredential()));
+            });
+        }
     })
+    .ConfigureFunctionsWorkerDefaults()
     .Build();
 
+host.Run();
