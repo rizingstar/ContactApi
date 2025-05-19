@@ -1,28 +1,37 @@
 # ContactApi
 
-A lightweight, serverless REST API built with **.NET 8 isolated Azure Functions**, integrated with **Azure SQL Database** for persistent contact storage.  
-Includes OpenAPI/Swagger UI for easy testing.
+A lightweight, production-ready serverless REST API built with **.NET 8 Isolated Azure Functions**, fully integrated with **Azure SQL Database** for persistent contact management.  
+Includes modern OpenAPI/Swagger UI for instant testing and exploration.
 
 ---
 
-## 🚀 Features
+## 🚀 Live Demo
 
-- ✅ **.NET 8 isolated worker model** (future-proof, clean DI)
-- ✅ **Azure SQL Database** integration via `Microsoft.Data.SqlClient`
-- ✅ **HTTP-triggered endpoints** (`GET`, `POST`)
-- ✅ **OpenAPI / Swagger UI** for testing
-- ✅ Ready for **Azure deployment** and GitHub Actions CI/CD
+- **API Endpoint:** [https://YOUR-APP.azurewebsites.net/api/contacts](#)  
+- **Swagger Docs:** [https://YOUR-APP.azurewebsites.net/api/swagger/index.html](#)  
+*(Replace with your actual Azure links after deployment!)*
 
 ---
 
-## 🧪 Endpoints
+## 🧑‍💻 Features
 
-| Method | Route            | Description              |
-|--------|------------------|--------------------------|
-| GET    | `/api/contacts`  | List all contacts        |
-| POST   | `/api/contacts`  | Add a new contact (JSON) |
+- .NET 8 Azure Functions (Isolated Process: modern DI, scalable, serverless)
+- Azure SQL Database integration (persistent, reliable storage)
+- REST API endpoints: GET, POST (full CRUD support coming soon)
+- OpenAPI/Swagger UI out-of-the-box for easy testing and documentation
+- Ready for one-click deployment to Azure with GitHub Actions CI/CD
+- Clean code structure, easy to extend for any business need
 
-### POST Body Example
+---
+
+## 🔌 API Endpoints
+
+| Method | Route             | Description         |
+|--------|-------------------|---------------------|
+| GET    | `/api/contacts`   | List all contacts   |
+| POST   | `/api/contacts`   | Add new contact     |
+
+### **POST /api/contacts** – Example Body
 
 ```json
 {
