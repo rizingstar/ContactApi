@@ -38,3 +38,51 @@ Includes modern OpenAPI/Swagger UI for instant testing and exploration.
   "name": "Ada Lovelace",
   "email": "ada@example.com"
 }
+
+## 🏃‍♂️ Run Locally
+
+**Prerequisites:**
+- [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+- [Azure Functions Core Tools](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash)
+- SQL Server (can be [local SQL Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads), or Azure SQL Database)
+- Git
+
+**1. Clone the repo:**
+```sh
+git clone https://github.com/rizingstar/ContactApi.git
+cd ContactApi
+
+
+2. Create local settings file:
+
+In the project root, create a file named local.settings.json with the following content (replace the SQL connection string as needed):
+
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "SQL_CONNECTION_STRING": "Server=localhost;Database=ContactDb;User Id=sa;Password=yourStrong(!)Password;",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+  }
+}
+
+3. Set up the database:
+
+Create the Contacts table in your SQL database (run this script in SQL Server Management Studio or Azure Data Studio):
+
+CREATE TABLE Contacts (
+    Id INT PRIMARY KEY IDENTITY,
+    Name NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(255) NOT NULL
+);
+
+4. Build and run the API:
+
+dotnet build
+func start
+5. Open the Swagger UI:
+
+In your browser, go to http://localhost:7071/api/swagger/index.html
+
+You can now interact with your local Contact API!
+
