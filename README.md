@@ -7,8 +7,8 @@ Includes modern OpenAPI/Swagger UI for instant testing and exploration.
 
 ## 🚀 Live Demo
 
-- **API Endpoint:** [https://YOUR-APP.azurewebsites.net/api/contacts](#)  
-- **Swagger Docs:** [https://YOUR-APP.azurewebsites.net/api/swagger/index.html](#)  
+- **API Endpoint:** [https://contactapi-nk.azurewebsites.net/api/contacts](#)  
+- **Swagger Docs:** [https://contactapi-nk.azurewebsites.net/api/swagger/index.html](#)  
 *(Replace with your actual Azure links after deployment!)*
 
 ---
