@@ -10,7 +10,7 @@ public class ContactRepository
     private readonly IConfiguration _config;
     public ContactRepository(IConfiguration config) => _config = config;
 
-    private string ConnStr => _config["SqlConnection"];
+    private string ConnStr => _config["SQL_CONNECTION_STRING"];
 
     public async Task<int> CreateAsync(Contact contact)
     {
