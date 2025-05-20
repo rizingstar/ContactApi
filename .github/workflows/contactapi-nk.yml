@@ -1,4 +1,4 @@
-name: Build and deploy .NET Core application to Function App contactapi-nk
+﻿name: Build and deploy .NET Core application to Function App contactapi-nk
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 env:
   AZURE_FUNCTIONAPP_NAME: contactapi-nk
   WORKING_DIRECTORY: ContactApi.Functions
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '${{ env.WORKING_DIRECTORY }}/publish'
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: ContactApi.Functions/publish
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 8.0.x
   DOTNET_CORE_VERSION_INPROC: 6.0.x
