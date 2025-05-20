@@ -1,5 +1,7 @@
 ﻿using Azure.Identity;
+using ContactApi.Functions.Services; // <-- add this using!
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection; // <-- add this using!
 using Microsoft.Extensions.Hosting;
 
 var host = new HostBuilder()
@@ -17,6 +19,10 @@ var host = new HostBuilder()
         }
     })
     .ConfigureFunctionsWorkerDefaults()
+    .ConfigureServices(services =>
+    {
+        services.AddScoped<ContactRepository>(); // <-- this is required for DI!
+    })
     .Build();
 
 host.Run();
