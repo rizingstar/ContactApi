@@ -51,15 +51,17 @@ Includes modern **OpenAPI/Swagger UI** for instant testing and exploration.
 
 ### 1. Clone the Repo
 
-```sh
+``sh
 git clone https://github.com/rizingstar/ContactApi.git
 cd ContactApi
+
+---
 
 ### 2. Create Local Settings
 
 In the project root, create a file named `local.settings.json`:
 
-```json
+``json
 {
   "IsEncrypted": false,
   "Values": {
@@ -69,22 +71,28 @@ In the project root, create a file named `local.settings.json`:
   }
 }
 
+---
+
 ### 3. Set Up the Database
 
 Create the `Contacts` table in your SQL database:
 
-```sql
+``sql
 CREATE TABLE Contacts (
     Id INT PRIMARY KEY IDENTITY,
     Name NVARCHAR(100) NOT NULL,
     Email NVARCHAR(255) NOT NULL
 );
 
+---
+
 ### 4. Build & Run the API
 
-```sh
+``sh
 dotnet build
 func start
+
+---
 
 ### 5. Open Swagger UI
 
