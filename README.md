@@ -30,14 +30,15 @@ Includes modern **OpenAPI/Swagger UI** for instant testing and exploration.
 | GET    | `/api/contacts` | List all contacts   |
 | POST   | `/api/contacts` | Add new contact     |
 
-### Example: POST `/api/contacts` Request Body
+---
 
-```json
+### Example: POST `/api/contacts` Request Body
+``json
 {
   "name": "Ada Lovelace",
   "email": "ada@example.com"
 }
-
+---
 ## 🏃‍♂️ Run Locally
 
 ### **Prerequisites**
